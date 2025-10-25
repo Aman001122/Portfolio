@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Amandeep Jakhar — Ultra Premium Portfolio</title>
+  <meta name="description" content="Amandeep Jakhar — AI Developer, Open Source Contributor. Cinematic, animated, responsive portfolio." />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/9b9d2c2a2a.js" crossorigin="anonymous" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Three.js & GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/build/three.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.151.3/examples/jsm/controls/OrbitControls.js" defer></script>
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader" aria-hidden="true">
+    <div class="loader">
+      <svg width="72" height="72" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="url(#g)" stroke-width="6" fill="none" stroke-linecap="round"></circle></svg>
+      <p>Loading portfolio…</p>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-aura"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav glass-nav" role="navigation" aria-label="Main">
+    <div class="nav-left">
+      <div class="brand">Amandeep<span class="dot">.</span></div>
+    </div>
+
+    <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="hero" class="hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1 class="hero-name">Amandeep <span class="accent">Jakhar</span></h1>
+        <p class="hero-role">AI Developer • Open Source Contributor • Cloud & Systems</p>
+
+        <div class="hero-ctas">
+          <a class="btn primary magnetic" href="#projects">Explore Projects</a>
+          <a class="btn ghost" href="#contact">Contact Me</a>
+        </div>
+
+        <div class="meta">
+          <span><i class="fas fa-map-marker-alt"></i> Bhubaneswar</span>
+          <span>•</span>
+          <span><i class="fas fa-envelope"></i> <a href="mailto:amandeepjakhar41@gmail.com">amandeepjakhar41@gmail.com</a></span>
+        </div>
+      </div>
+
+      <aside class="hero-right">
+        <div class="floating-card glass">
+          <div class="avatar">
+            <svg viewBox="0 0 120 120" class="avatar-svg" role="img" aria-label="Avatar">
+              <circle cx="60" cy="40" r="26"/><rect x="20" y="74" width="80" height="28" rx="8"/>
+            </svg>
+          </div>
+          <div class="intro">
+            <div class="hello">Hello, I'm</div>
+            <div class="name">Amandeep Jakhar</div>
+            <div class="tags">Tech Stack: Python · C · SQL · Linux · ML</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section id="about" class="section glass-panel">
+      <h2>About</h2>
+      <div class="about-grid">
+        <div>
+          <p>I’m <strong>Amandeep Jakhar</strong>, a Computer Science student. I design and build production-ready tools and prototypes emphasizing clean UI, accessibility, and performance. I contribute to open-source (GSSoC) and interned at Sylvan Georgic Strategy & Consulting.</p>
+          <ul class="about-list">
+            <li><strong>Skills:</strong> Python, C, C++, SQL, Git, Linux, APIs</li>
+            <li><strong>Interests:</strong> AI, 3D web, developer tooling</li>
+            <li><strong>Education:</strong> B.Tech (CS) — KIIT University 2023–2027</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Tech stack</h3>
+          <div class="stack-icons">
+            <i class="fab fa-python"></i>
+            <i class="fab fa-linux"></i>
+            <i class="fab fa-git-alt"></i>
+            <i class="fas fa-database"></i>
+            <i class="fas fa-cloud"></i>
+          </div>
+          <div class="skill-bars">
+            <div class="bar" data-skill="Python" data-value="94"><div class="fill"></div></div>
+            <div class="bar" data-skill="C" data-value="82"><div class="fill"></div></div>
+            <div class="bar" data-skill="SQL" data-value="88"><div class="fill"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2>Selected Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card magnetic" tabindex="0" data-title="Habit Tracker">
+          <div class="project-tag">Python</div>
+          <h3>Habit Tracker</h3>
+          <p>Habit tracking app with logging, analytics, and CSV export for long-term progress.</p>
+          <div class="project-actions">
+            <a href="https://github.com/AmandeepJakhar" target="_blank" class="link">View Code</a>
+            <button class="btn-sm open-modal">Preview</button>
+          </div>
+        </article>
+
+        <article class="project-card magnetic" tabindex="0" data-title="Sign Language">
+          <div class="project-tag">AI</div>
+          <h3>Sign Language → English</h3>
+          <p>Real-time translator using webcam pose detection and ML sequence mapping to text.</p>
+          <div class="project-actions">
+            <a href="#" class="link">Prototype</a>
+            <button class="btn-sm open-modal">Preview</button>
+          </div>
+        </article>
+
+        <article class="project-card magnetic" tabindex="0" data-title="Metaverse Builder">
+          <div class="project-tag">3D</div>
+          <h3>3D Virtual World Builder</h3>
+          <p>Procedural world generator and editor using Three.js and runtime AI prompts.</p>
+          <div class="project-actions">
+            <a href="#" class="link">Details</a>
+            <button class="btn-sm open-modal">Preview</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section glass-panel">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="entry">
+          <div class="date">Sep–Nov 2023</div>
+          <div class="body"><h4>Consulting Intern — Sylvan Georgic</h4><p>Analytics and reporting pipelines; practical teamwork with global clients.</p></div>
+        </div>
+        <div class="entry">
+          <div class="date">Oct 2024 – Present</div>
+          <div class="body"><h4>Contributor — GSSoC</h4><p>Open-source contributions focused on accessibility and cross-platform fixes.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="row">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn primary">Send Message</button>
+        <p class="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer glass-panel">
+    <p>&copy; 2025 Amandeep Jakhar. All rights reserved.</p>
+    <div class="socials">
+      <a href="https://github.com/AmandeepJakhar" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
